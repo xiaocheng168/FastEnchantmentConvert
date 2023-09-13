@@ -6,20 +6,19 @@ import net.milkbowl.vault.economy.Economy
 import org.bukkit.Bukkit
 import org.bukkit.plugin.RegisteredServiceProvider
 import org.bukkit.plugin.java.JavaPlugin
-import javax.imageio.spi.RegisterableService
 
 
-open class FastEnchantmentCovert : JavaPlugin() {
+open class FastEnchantmentConvert : JavaPlugin() {
 
 
     companion object {
-        lateinit var fastEnchantmentCovert: FastEnchantmentCovert
+        lateinit var fastEnchantmentConvert: FastEnchantmentConvert
         lateinit var economy: RegisteredServiceProvider<Economy>
     }
 
 
     override fun onLoad() {
-        fastEnchantmentCovert = this
+        fastEnchantmentConvert = this
         saveDefaultConfig()
     }
 

@@ -1,16 +1,13 @@
 package cc.mcyx.fec.listener
 
-import cc.mcyx.fec.FastEnchantmentCovert
+import cc.mcyx.fec.FastEnchantmentConvert
 import cc.mcyx.fec.message.MessageLanguage
-import com.google.gson.Gson
-import com.google.gson.JsonObject
 import de.tr7zw.nbtapi.NBTItem
 import net.md_5.bungee.api.chat.ComponentBuilder
 import net.md_5.bungee.api.chat.HoverEvent
 import net.md_5.bungee.api.chat.TextComponent
 import org.bukkit.Bukkit
 import org.bukkit.Material
-import org.bukkit.NamespacedKey
 import org.bukkit.enchantments.Enchantment
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -20,7 +17,6 @@ import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.event.player.PlayerChatEvent
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.EnchantmentStorageMeta
-import javax.xml.soap.Text
 
 
 class InventoryListener : Listener {
@@ -82,22 +78,22 @@ class InventoryListener : Listener {
 
                 val enchantmentStorageMeta = currentItem.itemMeta as EnchantmentStorageMeta
                 for (enchantment in enchantmentStorageMeta.storedEnchants) {
-                    val money = FastEnchantmentCovert.fastEnchantmentCovert.config.getDouble(
+                    val money = FastEnchantmentConvert.fastEnchantmentConvert.config.getDouble(
                         "cost." + enchantment.key.name.uppercase(),
-                        FastEnchantmentCovert.fastEnchantmentCovert.config.getDouble("default_cost", -1.0)
+                        FastEnchantmentConvert.fastEnchantmentConvert.config.getDouble("default_cost", -1.0)
                     )
                     if (money < 0) {
                         player.sendMessage("§c该附魔不支持卸载! §e类型ID: " + enchantment.key.name)
                         return
                     }
 
-                    if (FastEnchantmentCovert.economy.provider.getBalance(player) < money) {
+                    if (FastEnchantmentConvert.economy.provider.getBalance(player) < money) {
                         player.sendMessage("§c钱钱不够哦~ 此附魔你需要花费 $money")
                         return
                     }
 
                     //扣除玩家货币
-                    FastEnchantmentCovert.economy.provider.withdrawPlayer(player, money)
+                    FastEnchantmentConvert.economy.provider.withdrawPlayer(player, money)
 
                     val itemMeta = itemInMainHand.itemMeta!!
                     //删除主手上指定的附魔

@@ -1,6 +1,6 @@
 package cc.mcyx.fec.command
 
-import cc.mcyx.fec.FastEnchantmentCovert
+import cc.mcyx.fec.FastEnchantmentConvert
 import cc.mcyx.fec.listener.InventoryListener
 import org.bukkit.Material
 import org.bukkit.command.Command
@@ -55,8 +55,8 @@ class FecCommand : TabExecutor {
             }
             if (p3[0].lowercase() == "set" && p0.hasPermission("cc.mcyx.fec.admin")) {
                 if (p3.size == 3) {
-                    FastEnchantmentCovert.fastEnchantmentCovert.config.set("cost." + p3[1], p3[2].toDouble())
-                    FastEnchantmentCovert.fastEnchantmentCovert.saveConfig()
+                    FastEnchantmentConvert.fastEnchantmentConvert.config.set("cost." + p3[1], p3[2].toDouble())
+                    FastEnchantmentConvert.fastEnchantmentConvert.saveConfig()
                     p0.sendMessage("§c已设置该附魔卸载价格 为 " + p3[2].toDouble())
                 }
             }
