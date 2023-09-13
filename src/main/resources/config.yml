@@ -1,0 +1,5 @@
+cost:
+  #自定义修改价格
+  FROST_WALKER: 100
+#默认价格 -1 为不可撤销
+default_cost: 500

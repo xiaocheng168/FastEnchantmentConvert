@@ -1,0 +1,16 @@
+name: FastEnchantmentCovert
+version: "${project.version}"
+main: cc.mcyx.fec.FastEnchantmentCovert
+author: "Zcc(星兮兮)"
+website: https://game.mcyx.cc/
+api-version: 1.13
+description: "简单的快速卸魔"
+depend:
+  - Vault
+commands:
+  FastEnchantmentCovert:
+    description: "快速卸魔"
+    permission: "cc.mcyx.fec.use"
+    permission-message: "§c莫得权限使用嘞"
+    aliases:
+      - fec
